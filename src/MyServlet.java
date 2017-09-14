@@ -16,9 +16,19 @@ public class MyServlet extends HttpServlet {
         super.destroy();
     }
 
+    protected void doGet(HttpServletRequest request,
+                          HttpServletResponse response) throws ServletException, IOException {
+
+        performTask(request, response);
+    }
+
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response) throws ServletException, IOException {
 
+        performTask(request, response);
+    }
+
+    public void performTask(HttpServletRequest request, HttpServletResponse response) {
         RequestOutput.generate(request, response);
     }
 }
